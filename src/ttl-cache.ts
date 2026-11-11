@@ -3,10 +3,7 @@ interface CacheEntry<V> {
   readonly expiresAt: number;
 }
 
-export class TTLCache<K, V> implements Iterable<CacheEntry<V>[]> {
-  [Symbol.iterator](): Iterator<CacheEntry<V>[], any, any> {
-    throw new Error("Method not implemented.");
-  }
+export class TTLCache<K, V> {
   private readonly storage = new Map<K, CacheEntry<V>>();
 
   public get(key: K): V | undefined {
